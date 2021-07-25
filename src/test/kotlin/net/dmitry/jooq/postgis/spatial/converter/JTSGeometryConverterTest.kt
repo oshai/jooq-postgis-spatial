@@ -1,7 +1,7 @@
 package net.dmitry.jooq.postgis.spatial.converter
 
-import com.vividsolutions.jts.geom.Coordinate
-import com.vividsolutions.jts.geom.Geometry
+import org.locationtech.jts.geom.Coordinate
+import org.locationtech.jts.geom.Geometry
 import net.dmitry.jooq.postgis.spatial.jts.JTS
 import org.junit.Assert.assertTrue
 import org.junit.Test

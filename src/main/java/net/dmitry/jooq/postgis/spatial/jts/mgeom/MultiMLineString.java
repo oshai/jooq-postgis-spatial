@@ -20,11 +20,11 @@
  */
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.CoordinateSequence;
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.MultiLineString;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.CoordinateSequence;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.MultiLineString;
 
 public class MultiMLineString extends MultiLineString implements MGeometry {
 
@@ -140,7 +140,7 @@ public class MultiMLineString extends MultiLineString implements MGeometry {
 		double mval = Double.NaN;
 		double dist = Double.POSITIVE_INFINITY;
 
-		com.vividsolutions.jts.geom.Point p = this.getFactory().createPoint(co);
+		org.locationtech.jts.geom.Point p = this.getFactory().createPoint(co);
 
 		// find points within tolerance for getMatCoordinate
 		for (int i = 0; i < this.getNumGeometries(); i++) {
@@ -162,8 +162,8 @@ public class MultiMLineString extends MultiLineString implements MGeometry {
 		return mval;
 	}
 
-	public Object clone() {
-		MultiLineString ml = (MultiLineString) super.clone();
+	public MultiLineString copy() {
+		MultiLineString ml = (MultiLineString) super.copy();
 		return ml;
 	}
 

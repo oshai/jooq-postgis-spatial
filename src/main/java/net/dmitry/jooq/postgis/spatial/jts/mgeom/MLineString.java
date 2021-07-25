@@ -20,13 +20,13 @@
  */
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.CoordinateArrays;
-import com.vividsolutions.jts.geom.CoordinateSequence;
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.LineSegment;
-import com.vividsolutions.jts.geom.LineString;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.CoordinateArrays;
+import org.locationtech.jts.geom.CoordinateSequence;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.LineSegment;
+import org.locationtech.jts.geom.LineString;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,8 +55,8 @@ public class MLineString extends LineString implements MGeometry {
 		determineMonotone();
 	}
 
-	public Object clone() {
-		LineString ls = (LineString) super.clone();
+	public MLineString copy() {
+		LineString ls = (LineString) super.copy();
 		return new MLineString(ls.getCoordinateSequence(), this.getFactory());
 	}
 
@@ -192,7 +192,7 @@ public class MLineString extends LineString implements MGeometry {
 	/*
 		  * (non-Javadoc)
 		  *
-		  * @see com.vividsolutions.jts.geom.Geometry#getGeometryType()
+		  * @see org.locationtech.jts.geom.Geometry#getGeometryType()
 		  */
 
 	public String getGeometryType() {
@@ -202,7 +202,7 @@ public class MLineString extends LineString implements MGeometry {
 	/*
 		  * (non-Javadoc)
 		  *
-		  * @see com.vividsolutions.jts.geom.Geometry#getMatCoordinate(com.vividsolutions.jts.geom.Coordinate,
+		  * @see org.locationtech.jts.geom.Geometry#getMatCoordinate(org.locationtech.jts.geom.Coordinate,
 		  *      double)
 		  */
 
