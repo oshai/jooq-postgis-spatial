@@ -20,15 +20,15 @@
  */
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
-import com.vividsolutions.jts.geom.CoordinateSequence;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.PrecisionModel;
+import org.locationtech.jts.geom.CoordinateSequence;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.PrecisionModel;
 
 /**
  * Extension of the GeometryFactory for constructing Geometries with Measure
  * support.
  *
- * @see com.vividsolutions.jts.geom.GeometryFactory
+ * @see org.locationtech.jts.geom.GeometryFactory
  */
 public class MGeometryFactory extends GeometryFactory {
 
@@ -64,7 +64,7 @@ public class MGeometryFactory extends GeometryFactory {
 	 *
 	 * @param coordinates array of MCoordinate defining this geometry's vertices
 	 * @return An instance of MLineString containing the coordinates
-	 * @see #createLineString(com.vividsolutions.jts.geom.Coordinate[])
+	 * @see #createLineString(org.locationtech.jts.geom.Coordinate[])
 	 */
 	public MLineString createMLineString(MCoordinate[] coordinates) {
 		return createMLineString(
@@ -89,7 +89,7 @@ public class MGeometryFactory extends GeometryFactory {
 	 *
 	 * @param coordinates a CoordinateSequence possibly empty, or null
 	 * @return An MLineString instance based on the <code>coordinates</code>
-	 * @see #createLineString(com.vividsolutions.jts.geom.CoordinateSequence)
+	 * @see #createLineString(org.locationtech.jts.geom.CoordinateSequence)
 	 */
 	public MLineString createMLineString(CoordinateSequence coordinates) {
 		return new MLineString(coordinates, this);

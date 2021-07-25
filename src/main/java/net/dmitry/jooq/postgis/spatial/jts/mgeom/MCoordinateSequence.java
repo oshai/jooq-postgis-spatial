@@ -20,9 +20,9 @@
  */
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.CoordinateSequence;
-import com.vividsolutions.jts.geom.Envelope;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.CoordinateSequence;
+import org.locationtech.jts.geom.Envelope;
 
 import java.io.Serializable;
 
@@ -99,7 +99,7 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#getDimension()
+	 * @see org.locationtech.jts.geom.CoordinateSequence#getDimension()
 	 */
 	public int getDimension() {
 		return 4;
@@ -110,15 +110,15 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#getCoordinateCopy(int)
+	 * @see org.locationtech.jts.geom.CoordinateSequence#getCoordinateCopy(int)
 	 */
 	public Coordinate getCoordinateCopy(int index) {
 		return new Coordinate(coordinates[index]);
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#getCoordinate(int,
-	 *	  com.vividsolutions.jts.geom.Coordinate)
+	 * @see org.locationtech.jts.geom.CoordinateSequence#getCoordinate(int,
+	 *	  org.locationtech.jts.geom.Coordinate)
 	 */
 	public void getCoordinate(int index, Coordinate coord) {
 		coord.x = coordinates[index].x;
@@ -126,14 +126,14 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#getX(int)
+	 * @see org.locationtech.jts.geom.CoordinateSequence#getX(int)
 	 */
 	public double getX(int index) {
 		return coordinates[index].x;
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#getY(int)
+	 * @see org.locationtech.jts.geom.CoordinateSequence#getY(int)
 	 */
 	public double getY(int index) {
 		return coordinates[index].y;
@@ -147,7 +147,7 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#getOrdinate(int, int)
+	 * @see org.locationtech.jts.geom.CoordinateSequence#getOrdinate(int, int)
 	 */
 	public double getOrdinate(int index, int ordinateIndex) {
 		switch (ordinateIndex) {
@@ -164,7 +164,7 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	/**
-	 * @see com.vividsolutions.jts.geom.CoordinateSequence#setOrdinate(int, int, double)
+	 * @see org.locationtech.jts.geom.CoordinateSequence#setOrdinate(int, int, double)
 	 */
 	public void setOrdinate(int index, int ordinateIndex, double value) {
 		switch (ordinateIndex) {
@@ -186,6 +186,16 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	public Object clone() {
+		MCoordinate[] cloneCoordinates = new MCoordinate[size()];
+		for (int i = 0; i < coordinates.length; i++) {
+			cloneCoordinates[i] = (MCoordinate) coordinates[i].clone();
+		}
+
+		return new MCoordinateSequence(cloneCoordinates);
+	}
+
+	@Override
+	public CoordinateSequence copy() {
 		MCoordinate[] cloneCoordinates = new MCoordinate[size()];
 		for (int i = 0; i < coordinates.length; i++) {
 			cloneCoordinates[i] = (MCoordinate) coordinates[i].clone();

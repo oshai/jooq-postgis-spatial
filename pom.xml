@@ -36,8 +36,8 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.vividsolutions</groupId>
-            <artifactId>jts</artifactId>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-core</artifactId>
             <version>${jts.version}</version>
             <exclusions>
                 <exclusion>
@@ -99,10 +99,10 @@
 
     <properties>
         <compileSource>1.8</compileSource>
-        <kotlin.version>1.0.0</kotlin.version>
+        <kotlin.version>1.5.21</kotlin.version>
         <postgresql.version>9.4-1201-jdbc4</postgresql.version>
         <jooq.version>3.7.3</jooq.version>
-        <jts.version>1.13</jts.version>
+        <jts.version>1.18.1</jts.version>
         <postgis-jdbc.version>2.2.0</postgis-jdbc.version>
     </properties>
 
