@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.dmitry.jooq.postgis.spatial</groupId>
+    <groupId>io.github.oshai</groupId>
     <artifactId>jooq-postgis-spatial</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -99,7 +99,7 @@
 
     <properties>
         <compileSource>1.8</compileSource>
-        <kotlin.version>1.0.0</kotlin.version>
+        <kotlin.version>1.8.0</kotlin.version>
         <postgresql.version>9.4-1201-jdbc4</postgresql.version>
         <jooq.version>3.7.3</jooq.version>
         <jts.version>1.13</jts.version>
