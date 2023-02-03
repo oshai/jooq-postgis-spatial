@@ -1,23 +1,4 @@
-/*
- * This file is part of Hibernate Spatial, an extension to the
- *  hibernate ORM solution for spatial (geographic) data.
- *
- *  Copyright © 2007-2012 Geovise BVBA
- *
- *  This library is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public
- *  License as published by the Free Software Foundation; either
- *  version 2.1 of the License, or (at your option) any later version.
- *
- *  This library is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *  Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public
- *  License along with this library; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
 import com.vividsolutions.jts.geom.Coordinate;
@@ -28,7 +9,8 @@ import com.vividsolutions.jts.geom.CoordinateSequence;
  * (x,y,z) are coordinates in a 3 dimensional space (cartesian for example), and
  * the fourth is a measure value used for linear referencing. Note that the
  * measure value is independent of whether the (x,y,z) values are used. For
- * example, the z value can not be used while the measure value is used. <p/>
+ * example, the z value can not be used while the measure value is used.
+ *
  * While this class extends the Coordinate class, it can be used seamlessly as a
  * substitute in the event that the Measure value is not used. In these cases
  * the Measure value shall simply be Double.NaN

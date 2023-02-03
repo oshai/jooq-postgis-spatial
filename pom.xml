@@ -6,8 +6,43 @@
 
     <groupId>io.github.oshai</groupId>
     <artifactId>jooq-postgis-spatial</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>jooq-postgis-spatial</name>
+    <description>jOOQ data type converters and binders for PostGIS spatial database.</description>
+    <url>https://github.com/oshai/jooq-postgis-spatial</url>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Ohad Shai</name>
+            <email>ohadshai@gmail.com</email>
+            <organization>github</organization>
+            <organizationUrl>https://www.github.com</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/oshai/jooq-postgis-spatial.git</connection>
+        <developerConnection>scm:git:ssh://github.com:oshai/jooq-postgis-spatial.git</developerConnection>
+        <url>https://github.com/oshai/jooq-postgis-spatial/tree/master</url>
+    </scm>
+    <distributionManagement>
+        <!-- see https://blog.10pines.com/2018/06/25/publish-artifacts-on-maven-central/ -->
+        <snapshotRepository>
+            <id>sonatype-nexus-snapshots</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>sonatype-nexus-staging</id>
+            <name>Nexus Release Repository</name>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -105,6 +140,40 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Attach source jars-->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.plugin.source}</version>
+                <executions>
+                    <execution>
+                        <id>attach-source</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Attach javadocs jar -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${version.plugin.javadoc}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -116,6 +185,8 @@
         <kotlin.version>1.8.0</kotlin.version>
         <postgresql.version>9.4-1201-jdbc4</postgresql.version>
         <jooq.version>3.7.3</jooq.version>
+        <version.plugin.javadoc>3.4.1</version.plugin.javadoc>
+        <version.plugin.source>3.2.1</version.plugin.source>
         <jts.version>1.13</jts.version>
         <postgis-jdbc.version>2.2.0</postgis-jdbc.version>
     </properties>

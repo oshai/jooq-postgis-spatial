@@ -1,23 +1,4 @@
-/*
- * This file is part of Hibernate Spatial, an extension to the
- *  hibernate ORM solution for spatial (geographic) data.
- *
- *  Copyright © 2007-2012 Geovise BVBA
- *
- *  This library is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public
- *  License as published by the Free Software Foundation; either
- *  version 2.1 of the License, or (at your option) any later version.
- *
- *  This library is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *  Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public
- *  License along with this library; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
 import com.vividsolutions.jts.geom.Coordinate;
@@ -59,7 +40,7 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	 * Copy constructor -- simply aliases the input array, for better
 	 * performance.
 	 *
-	 * @param coordinates
+	 * @param coordinates c
 	 */
 	public MCoordinateSequence(MCoordinate[] coordinates) {
 		this.coordinates = coordinates;
@@ -70,7 +51,7 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	 * copy of the input array, since the actual class of the Coordinates in the
 	 * input array may be different from MCoordinate.
 	 *
-	 * @param copyCoords
+	 * @param copyCoords c
 	 */
 	public MCoordinateSequence(Coordinate[] copyCoords) {
 		coordinates = copy(copyCoords);
@@ -79,7 +60,7 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	/**
 	 * Constructor that makes a copy of a CoordinateSequence.
 	 *
-	 * @param coordSeq
+	 * @param coordSeq c
 	 */
 	public MCoordinateSequence(CoordinateSequence coordSeq) {
 		coordinates = copy(coordSeq);
@@ -140,6 +121,9 @@ public class MCoordinateSequence implements CoordinateSequence, Serializable {
 	}
 
 	/**
+	 *
+	 * @param index the index
+	 *
 	 * @return the measure value of the coordinate in the index
 	 */
 	public double getM(int index) {

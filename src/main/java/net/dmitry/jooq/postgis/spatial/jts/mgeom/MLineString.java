@@ -1,23 +1,4 @@
-/*
- * This file is part of Hibernate Spatial, an extension to the
- *  hibernate ORM solution for spatial (geographic) data.
- *
- *  Copyright © 2007-2012 Geovise BVBA
- *
- *  This library is free software; you can redistribute it and/or
- *  modify it under the terms of the GNU Lesser General Public
- *  License as published by the Free Software Foundation; either
- *  version 2.1 of the License, or (at your option) any later version.
- *
- *  This library is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *  Lesser General Public License for more details.
- *
- *  You should have received a copy of the GNU Lesser General Public
- *  License along with this library; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+
 package net.dmitry.jooq.postgis.spatial.jts.mgeom;
 
 import com.vividsolutions.jts.geom.Coordinate;
@@ -99,6 +80,8 @@ public class MLineString extends LineString implements MGeometry {
 	 * @param co		input coordinate in the neighbourhood of the MLineString
 	 * @param tolerance max. distance that co may be from this MLineString
 	 * @return an MCoordinate on this MLineString with appropriate M-value
+	 * @throws MGeometryException on problem
+	 *
 	 */
 	public MCoordinate getClosestPoint(Coordinate co, double tolerance)
 			throws MGeometryException {
@@ -503,7 +486,9 @@ public class MLineString extends LineString implements MGeometry {
 	 * CoordinateSequence to the <code>endMeasure</code>. Measure values for
 	 * intermediate coordinates are then interpolated proportionally based on
 	 * their 2d offset of the overall 2d length of the LineString.
-	 * <p/>
+	 *
+	 *
+	 *
 	 * If the beginMeasure and endMeasure values are equal it is assumed that
 	 * all intermediate coordinates shall be the same value.
 	 *
